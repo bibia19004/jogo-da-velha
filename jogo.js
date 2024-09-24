@@ -1,21 +1,22 @@
-let botao, quebraLinha, jogada = 1
-let tabuleiro = new Array(3)
-for(let i = 0; i < tabuleiro.length; i++){
-    tabuleiro[i] = new Array(3)
-}
+let botao, quebraLinha, jogada = 1;
+let tabuleiro = new Array(3);
+const tabuleiroDiv = document.querySelector('.tabuleiro');
 
-for(let i = 0; i < tabuleiro.length; i++){
-    quebraLinha = document.createElement('br')
-    document.body.append(quebraLinha);
-    for(let j = 0; j < tabuleiro.length; j++){
-        botao = document.createElement('button')
-        botao.setAttribute('type', 'button')
-        botao.setAttribute('id', 'bt' + i + "" + j)
-        botao.setAttribute('class', 'btJogo' + i)
-        botao.setAttribute('onclick', 'marca' + i + "" + j + "()")
+for (let i = 0; i < tabuleiro.length; i++) {
+    tabuleiro[i] = new Array(3);
+    let linhaDiv = document.createElement('div');
+    linhaDiv.classList.add('linha');
+    
+    for (let j = 0; j < tabuleiro.length; j++) {
+        botao = document.createElement('button');
+        botao.setAttribute('type', 'button');
+        botao.setAttribute('id', 'bt' + i + "" + j);
+        botao.setAttribute('class', 'btJogo' + i);
+        botao.setAttribute('onclick', 'marca' + i + "" + j + "()");
         botao.append(document.createTextNode(""));
-        document.body.append(botao);
+        linhaDiv.append(botao);
     }
+    tabuleiroDiv.append(linhaDiv);
 }
 
 function marca00(){
